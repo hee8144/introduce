@@ -1,11 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    자기소개페이지
-</body>
+    <link rel="stylesheet" href="./introduce.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  </head>
+  <body class="dark-mode">
+    <header>
+      <div class="header-con">
+        <h1>Hong Gildong</h1>
+        <button class="light" onclick="fnMode()" id="mode">
+          <span class="material-symbols-outlined" id="mode-icon">light_mode</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="container">
+      <section class="main-Con">
+        <div class="Name_Box">
+          <div class="Img">
+            <img src="https://placehold.co/160x160" alt="" />
+          </div>
+          <div class="intro-box">
+            <h2 class="name">Hong Gildong</h2>
+            <div class="SNS_Box">
+              <a class="sns" href="#">test@naver.com</a>
+              <a class="sns" href="#">010-****-****</a>
+              <a class="sns" href="#">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a class="sns" href="#">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+            </div>
+            <div class="intro">
+              <p>저는 프로그래밍에 관심이 많습니다.</p>
+              <p>현재 열심히 공부하며 코딩 중!</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="main-Con">
+        <h2 class="title">보유기술</h2>
+        <div class="sub-con">
+          <div class="skill-main">
+            <span class="bar-text">JAVA</span>
+            <div class="bar-con">
+              <span class="bar" data-width="40">40%</span>
+            </div>
+          </div>
+          <div class="skill-main">
+            <span class="bar-text">ORACLE</span>
+            <div class="bar-con">
+              <span class="bar" data-width="50">50%</span>
+            </div>
+          </div>
+          <div class="skill-main">
+            <span class="bar-text">HTML/CSS</span>
+            <div class="bar-con">
+              <span class="bar" data-width="60">60%</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="main-Con">
+        <h2 class="title">Experience</h2>
+        <div class="sub-con">
+          <ul class="exp-main">
+            <li>
+              프론트엔드
+              <ul>
+                <li>HTML/CSS/JAVASCRIPT</li>
+                <li>웹 페이지 잘만든다</li>
+                <li>다 잘함</li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="exp-main">
+            <li>
+              백엔드
+              <ul>
+                <li>자바 잘함</li>
+                <li>오라클 더 잘함</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="main-Con">
+        <h2 class="title">Education</h2>
+        <div class="table-con">
+          <table>
+            <caption>
+              학력 사항
+            </caption>
+            <tr>
+              <th>출신학교</th>
+              <th>전공</th>
+              <th>기간</th>
+              <th>구분</th>
+            </tr>
+            <tr>
+              <td>좋은대학교</td>
+              <td>좋은학과</td>
+              <td>2010.3 ~ 2013.2</td>
+              <td>졸업</td>
+            </tr>
+            <tr>
+              <td>꽤좋은고등학교</td>
+              <td>-</td>
+              <td>2007.3 ~ 2009.2</td>
+              <td>졸업</td>
+            </tr>
+          </table>
+        </div>
+      </section>
+
+      <article>
+        <div id="container">
+          <div class="time"></div>
+        </div>
+      </article>
+    </div>
+
+    <footer>
+      <div>honggildong</div>
+    </footer>
+  </body>
 </html>
+<script>
+  function fnMode() {
+    let body = document.body;
+    let btn = document.querySelector("#mode");
+    let icon = document.querySelector("#mode-icon");
+
+    body.classList.toggle("light-mode");
+    body.classList.toggle("dark-mode");
+
+    if (body.classList.contains("dark-mode")) {
+      btn.classList.remove("dark");
+      btn.classList.add("light");
+      icon.innerHTML = "light_mode";
+    } else {
+      btn.classList.remove("light");
+      btn.classList.add("dark");
+      icon.innerHTML = "dark_mode";
+    }
+  }
+  setInterval(() => {
+    let datetime = new Date();
+    let time = datetime.getHours() + " : " + datetime.getMinutes() + " : " + datetime.getSeconds();
+    let obj = document.querySelector(".time");
+    obj.innerHTML = time;
+  }, 1000);
+  window.addEventListener("DOMContentLoaded", () => {
+    let bars = document.querySelectorAll(".bar");
+    for (let i = 0; i < bars.length; i++) {
+      let width = bars[i].getAttribute("data-width");
+
+      setTimeout(() => {
+        bars[i].style.width = width + "%";
+      }, 300);
+    }
+  });
+</script>

@@ -28,8 +28,10 @@
             <h2 class="name">Hong Gildong</h2>
             <div class="SNS_Box">
               <a class="sns" href="#">test@naver.com</a>
-              <a class="sns" href="#">010-****-****</a>
-              <a class="sns" href="#">
+              <a class="sns" href="tel:010-1234-5678">
+                <i class="fa-solid fa-phone"></i>
+              </a>
+              <a class="sns" href="https://github.com/hee8144/introduce">
                 <i class="fa-brands fa-github"></i>
               </a>
               <a class="sns" href="#">
@@ -90,6 +92,23 @@
               </ul>
             </li>
           </ul>
+        </div>
+      </section>
+
+      <section class="main-Con">
+        <h2 class="title">Education</h2>
+        <div class="slider-Wrapper">
+          <span style="font-size: 40px" class="arrow left material-symbols-outlined">arrow_circle_left</span>
+          <ul class="slide-Con">
+            <li class="slide"><img src="https://placehold.co/160x160" alt="" /></li>
+            <li class="slide"><img src="https://placehold.co/160x160" alt="" /></li>
+            <li class="slide"><img src="https://placehold.co/160x160" alt="" /></li>
+            <li class="slide"><img src="https://placehold.co/160x160" alt="" /></li>
+            <li class="slide"><img src="https://placehold.co/160x160" alt="" /></li>
+            <li class="slide"><img src="https://placehold.co/160x160" alt="" /></li>
+            <li class="slide"><img src="https://placehold.co/160x160" alt="" /></li>
+          </ul>
+          <span style="font-size: 40px" class="arrow right material-symbols-outlined">arrow_circle_right</span>
         </div>
       </section>
 
@@ -167,6 +186,39 @@
       setTimeout(() => {
         bars[i].style.width = width + "%";
       }, 300);
+    }
+  });
+  let slideCon = document.querySelector(".slide-Con");
+  let slideItems = document.querySelectorAll(".slide");
+  let leftArrow = document.querySelector(".arrow.left");
+  let rightArrow = document.querySelector(".arrow.right");
+  let slideWrap = document.querySelector(".slide-Wrapper");
+
+  let count = 0;
+  let slideWidth = slideItems[0].offsetWidth;
+  let slideConWidth = slideCon.offsetWidth;
+  let viewNum = parseInt(slideConWidth / slideWidth);
+  console.log(viewNum);
+
+  function slide() {
+    slideCon.style.transform = `translateX(-${count * (slideWidth + 20)}px)`;
+    slideCon.style.transition = "transform 0.5s ease-in-out";
+  }
+
+  rightArrow.addEventListener("click", () => {
+    if (count < slideItems.length - viewNum) {
+      count++;
+      slide();
+    } else {
+      count = 0;
+      slideCon.style.transform = "none";
+      slideCon.style.transform = `translateX(0px)`;
+    }
+  });
+  leftArrow.addEventListener("click", () => {
+    if (count > 0) {
+      count--;
+      slide();
     }
   });
 </script>

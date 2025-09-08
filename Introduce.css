@@ -139,15 +139,29 @@ header {
   width: 600px;
   margin: 0 auto;
 }
+
 table,
 th,
 tr,
 td {
-  border: 1px solid black;
   text-align: center;
   padding: 5px 20px;
   border-collapse: collapse;
 }
+
+.dark-mode table,
+th,
+tr,
+td {
+  border: 1px solid white;
+}
+.light-mode table,
+th,
+tr,
+td {
+  border: 1px solid black;
+}
+
 #container {
   position: fixed;
   top: 30vh;
@@ -195,6 +209,11 @@ td {
 }
 .font-40 {
   font-size: 60px;
+}
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 footer {
   padding-top: 20px;

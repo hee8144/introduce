@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./Introduce.css" />
+    <link rel="stylesheet" href="./introduce.css" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   </head>
@@ -96,7 +96,7 @@
       </section>
 
       <section class="main-Con">
-        <h2 class="title">Education</h2>
+        <h2 class="title">Projects</h2>
         <div class="slider-Wrapper">
           <span style="font-size: 40px" class="arrow left material-symbols-outlined">arrow_circle_left</span>
           <ul class="slide-Con">
@@ -116,7 +116,7 @@
         <h2 class="title">Education</h2>
         <div class="table-con">
           <table>
-            <caption>
+            <caption class="title">
               학력 사항
             </caption>
             <tr>
@@ -181,7 +181,7 @@
   window.addEventListener("DOMContentLoaded", () => {
     let bars = document.querySelectorAll(".bar");
     for (let i = 0; i < bars.length; i++) {
-      let width = bars[i].getAttribute("data-width");
+      let width = bars[i].dataset.width;
 
       setTimeout(() => {
         bars[i].style.width = width + "%";
@@ -192,7 +192,6 @@
   let slideItems = document.querySelectorAll(".slide");
   let leftArrow = document.querySelector(".arrow.left");
   let rightArrow = document.querySelector(".arrow.right");
-  let slideWrap = document.querySelector(".slide-Wrapper");
 
   let count = 0;
   let slideWidth = slideItems[0].offsetWidth;
@@ -222,5 +221,3 @@
     }
   });
 </script>
-
-
